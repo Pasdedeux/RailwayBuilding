@@ -16,5 +16,14 @@ namespace RailwayBuildingSystem
         {
             InitializeComponent();
         }
+
+        private void Form1_Load( object sender , EventArgs e )
+        {
+            if ( Tool.Common.IsConnect() )
+            {
+                Tool.DebugLog.Log( "this si a test" );
+            }
+            
+        }
     }
 }

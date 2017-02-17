@@ -8,34 +8,6 @@ using System.Net.NetworkInformation;
 
 namespace Tool
 {
-    class Common
-    {
-        /// <summary>
-        /// 当前程序联网状态检测，用于判断是否处于联网状态
-        /// </summary>
-        /// <returns></returns>
-        public static bool IsConnect( )
-        {
-            Ping ping;
-            PingReply res;
-            ping = new Ping();
-
-            try
-            {
-                //用百度或者任意地址检测
-                res = ping.Send( "www.baidu.com" );
-                DebugLog.Log( res.Address.ToString() );
-                if ( res.Status != IPStatus.Success ) return false;
-                else return true;
-            }
-            catch ( Exception e )
-            {
-                DebugLog.Log( e.Message );
-                return false;
-            }
-        }
-    }
-
     /// <summary>
     /// 日志类，用于各类日志打印
     /// </summary>

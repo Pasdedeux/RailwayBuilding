@@ -19,9 +19,9 @@ namespace RailwayBuildingSystem
 
         private void Form1_Load( object sender , EventArgs e )
         {
-            if ( Tool.Common.IsConnect() )
+            if ( Tool.Net.IsConnect() )
             {
-                Tool.DebugLog.Log( "this si a test" );
+                System.Console.WriteLine( "Net is connecting" );
             }
             
         }

@@ -10,9 +10,12 @@ using System.Windows.Forms;
 
 namespace RailwayBuildingSystem
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1( )
+        private BuildingAndConstructionWindow _buildWindow;
+        private HVACWindow _hvacWindow;
+
+        public Main( )
         {
             InitializeComponent();
         }
@@ -24,6 +27,23 @@ namespace RailwayBuildingSystem
                 System.Console.WriteLine( "Net is connecting" );
             }
             
+        }
+
+        private void LinkToolStripMenuItem_Click( object sender , EventArgs e )
+        {
+            Console.WriteLine("点击链接");
+        }
+
+        private void BuildAndConstructToolStripMenuItem_Click( object sender , EventArgs e )
+        {
+            _buildWindow = new BuildingAndConstructionWindow();
+            _buildWindow.Show();
+        }
+
+        private void HVACToolStripMenuItem_Click( object sender , EventArgs e )
+        {
+            _hvacWindow = new HVACWindow();
+            _hvacWindow.Show();
         }
     }
 }

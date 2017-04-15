@@ -26,12 +26,12 @@ namespace RailwayBuildingSystem
             {
                 System.Console.WriteLine( "Net is connecting" );
             }
-            
+
         }
 
         private void LinkToolStripMenuItem_Click( object sender , EventArgs e )
         {
-            Console.WriteLine("点击链接");
+            Console.WriteLine( "点击链接" );
         }
 
         private void BuildAndConstructToolStripMenuItem_Click( object sender , EventArgs e )

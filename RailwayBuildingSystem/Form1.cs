@@ -45,5 +45,6 @@ namespace RailwayBuildingSystem
             _hvacWindow = new HVACWindow();
             _hvacWindow.Show();
         }
+
     }
 }

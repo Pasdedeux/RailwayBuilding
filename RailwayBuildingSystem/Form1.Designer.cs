@@ -672,14 +672,12 @@
             this.房建专业ToolStripMenuItem.Name = "房建专业ToolStripMenuItem";
             this.房建专业ToolStripMenuItem.Size = new System.Drawing.Size(208, 38);
             this.房建专业ToolStripMenuItem.Text = "房建专业";
-            this.房建专业ToolStripMenuItem.Click += new System.EventHandler(this.BuildAndConstructToolStripMenuItem_Click);
             // 
             // 暖通专业ToolStripMenuItem
             // 
             this.暖通专业ToolStripMenuItem.Name = "暖通专业ToolStripMenuItem";
             this.暖通专业ToolStripMenuItem.Size = new System.Drawing.Size(208, 38);
             this.暖通专业ToolStripMenuItem.Text = "暖通专业";
-            this.暖通专业ToolStripMenuItem.Click += new System.EventHandler(this.HVACToolStripMenuItem_Click);
             // 
             // 帮助ToolStripMenuItem
             // 

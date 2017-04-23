@@ -22,28 +22,37 @@ namespace RailwayBuildingSystem
 
         private void Form1_Load( object sender , EventArgs e )
         {
-            if ( Tool.Net.IsConnect() )
+            LoadingDetect();
+        }
+
+        private void LoadingDetect( )
+        {
+            if ( Tool.Net.IsConnect() && Tool.Net.IsConnectMySql())
             {
                 System.Console.WriteLine( "Net is connecting" );
-            }
 
+
+            }
+            else
+            {
+                MessageBoxButtons okButton = MessageBoxButtons.OK;
+                MessageBoxButtons retryButton = MessageBoxButtons.RetryCancel;
+                DialogResult dr = MessageBox.Show( "网络问题无法连接数据库" , "无法连接" , okButton | retryButton );
+
+                if ( dr == DialogResult.OK )
+                {
+                    Application.Exit();
+                }
+                else//如果点击“重试”按钮
+                {
+                    LoadingDetect();
+                }
+            }
         }
 
         private void LinkToolStripMenuItem_Click( object sender , EventArgs e )
         {
             Console.WriteLine( "点击链接" );
-        }
-
-        private void BuildAndConstructToolStripMenuItem_Click( object sender , EventArgs e )
-        {
-            _buildWindow = new BuildingAndConstructionWindow();
-            _buildWindow.Show();
-        }
-
-        private void HVACToolStripMenuItem_Click( object sender , EventArgs e )
-        {
-            _hvacWindow = new HVACWindow();
-            _hvacWindow.Show();
         }
 
     }

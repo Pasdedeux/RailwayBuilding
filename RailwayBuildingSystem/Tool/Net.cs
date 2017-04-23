@@ -36,17 +36,26 @@ namespace Tool
         }
 
 
-        public bool IsConnectMySql( )
+        public static bool IsConnectMySql( )
         {
             string str = "Server=localhost;User ID=root;Password=;Database=rbuildingdb;CharSet=utf8";
             MySqlConnection con = new MySqlConnection( str );//实例化链接
-            con.Open();//开启连接
-            if ( con.State == System.Data.ConnectionState.Open )
+           
+            try
             {
-                System.Console.WriteLine( "MySql connecting success.." );
-                return true;
+                con.Open();//开启连接
+                if ( con.State == System.Data.ConnectionState.Open )
+                {
+                    System.Console.WriteLine( "MySql connecting success.." );
+                    return true;
+                }
+                else
+                {
+                    System.Console.WriteLine( "MySql connecting open failed.." );
+                    return false;
+                }
             }
-            else
+            catch ( Exception e )
             {
                 System.Console.WriteLine( "MySql connecting failed.." );
                 return false;

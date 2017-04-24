@@ -39,7 +39,7 @@ namespace RailwayBuildingSystem
                 MessageBoxButtons retryButton = MessageBoxButtons.RetryCancel;
                 DialogResult dr = MessageBox.Show( "网络问题无法连接数据库" , "无法连接" , okButton | retryButton );
 
-                if ( dr == DialogResult.OK )
+                if ( dr == DialogResult.Cancel )
                 {
                     Application.Exit();
                 }

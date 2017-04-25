@@ -65,7 +65,7 @@ namespace Tool
         /// <summary>
         /// 连接Mysql并获取数据库数据
         /// </summary>
-        public DataSet ConnectMySql( )
+        public static DataSet ConnectMySql( )
         {
             string str = "Server=localhost;User ID=root;Password=;Database=rbuildingdb;CharSet=utf8";
             //实例化链接
@@ -73,7 +73,7 @@ namespace Tool
             //开启连接
             con.Open();
             //数据库表为 staffaccount
-            string strcmd = "select * from staffaccount";
+            string strcmd = "select * from buildingModelInfo";
             MySqlCommand cmd = new MySqlCommand( strcmd , con );
             MySqlDataAdapter ada = new MySqlDataAdapter( cmd );
             //查询结果填充数据集

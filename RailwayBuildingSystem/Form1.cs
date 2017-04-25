@@ -31,7 +31,8 @@ namespace RailwayBuildingSystem
             {
                 System.Console.WriteLine( "Net is connecting" );
 
-
+                DataSet ds = Tool.Net.ConnectMySql();
+                dataBaseViewer.DataSource = ds.Tables[ 0 ];
             }
             else
             {

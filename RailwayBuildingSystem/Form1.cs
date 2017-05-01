@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
 
 namespace RailwayBuildingSystem
 {
+    using Tool;
     public partial class Main : Form
     {
         private BuildingAndConstructionWindow _buildWindow;
@@ -27,13 +29,20 @@ namespace RailwayBuildingSystem
 
         private void LoadingDetect( )
         {
-            if ( Tool.Net.IsConnect() && Tool.Net.IsConnectMySql() )
+            if ( /*Tool.Net.IsConnect() && */Tool.Net.IsConnectMySql() )
             {
                 System.Console.WriteLine( "Net is connecting" );
 
                 DataSet ds = Tool.Net.ConnectMySql();
                 dataBaseViewer.DataSource = ds.Tables[ 0 ];
                 dataBaseViewer.ClearSelection();
+
+                DataProxy dataProxy = new DataProxy();
+                PropertyInfo[] propArray = dataProxy.GetType().GetProperties();
+                for ( int i = 0 ; i < propArray.Length ; i++ )
+                {
+                    Console.WriteLine( propArray[ i ].Name );
+                }
 
                 //TODO 
                 //可以通过这种方式输出需要的数据

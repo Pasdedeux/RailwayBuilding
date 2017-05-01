@@ -27,12 +27,21 @@ namespace RailwayBuildingSystem
 
         private void LoadingDetect( )
         {
-            if ( Tool.Net.IsConnect() && Tool.Net.IsConnectMySql())
+            if ( Tool.Net.IsConnect() && Tool.Net.IsConnectMySql() )
             {
                 System.Console.WriteLine( "Net is connecting" );
 
                 DataSet ds = Tool.Net.ConnectMySql();
                 dataBaseViewer.DataSource = ds.Tables[ 0 ];
+                dataBaseViewer.ClearSelection();
+
+                //TODO 
+                //可以通过这种方式输出需要的数据
+                var list = ds.Tables[ 0 ].CreateDataReader();
+                while ( list.Read() )
+                {
+                    Console.WriteLine( list[ "Password" ] );
+                }
             }
             else
             {

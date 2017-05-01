@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.NetworkInformation;
 using MySql.Data.MySqlClient;
+using Tool;
 
-namespace Tool
+namespace RailwayBuildingSystem.Tool
 {
     class Net
     {
@@ -73,7 +74,7 @@ namespace Tool
             //开启连接
             con.Open();
             //数据库表为 staffaccount
-            string strcmd = "select * from buildingModelInfo";
+            string strcmd = "select * from staffaccount";
             MySqlCommand cmd = new MySqlCommand( strcmd , con );
             MySqlDataAdapter ada = new MySqlDataAdapter( cmd );
             //查询结果填充数据集

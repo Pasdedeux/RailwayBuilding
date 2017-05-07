@@ -17,6 +17,8 @@ namespace RailwayBuildingSystem
         private BuildingAndConstructionWindow _buildWindow;
         private HVACWindow _hvacWindow;
 
+        private List<DataProxy> _dataProxyList = new List<DataProxy>();
+
         public Main( )
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace RailwayBuildingSystem
 
         private void LoadingDetect( )
         {
-            if ( /*Tool.Net.IsConnect() && */Tool.Net.IsConnectMySql() )
+            if ( Tool.Net.IsConnect() && Tool.Net.IsConnectMySql() )
             {
                 System.Console.WriteLine( "Net is connecting" );
 
@@ -37,20 +39,23 @@ namespace RailwayBuildingSystem
                 dataBaseViewer.DataSource = ds.Tables[ 0 ];
                 dataBaseViewer.ClearSelection();
 
-                DataProxy dataProxy = new DataProxy();
-                PropertyInfo[] propArray = dataProxy.GetType().GetProperties();
-                for ( int i = 0 ; i < propArray.Length ; i++ )
-                {
-                    Console.WriteLine( propArray[ i ].Name );
-                }
-
-                //TODO 
                 //可以通过这种方式输出需要的数据
                 var list = ds.Tables[ 0 ].CreateDataReader();
                 while ( list.Read() )
                 {
-                    Console.WriteLine( list[ "Password" ] );
+                    DataProxy dataProxy = new DataProxy();
+                    PropertyInfo[] propArray = dataProxy.GetType().GetProperties();
+                    List<string> nameList = new List<string>();
+                    for ( int i = 0 ; i < propArray.Length ; i++ )
+                    {
+                        nameList.Add( propArray[ i ].Name );
+                        propArray[ i ].SetValue( dataProxy , list[ propArray[ i ].Name ] );
+                    }
+
+                    _dataProxyList.Add( dataProxy );
                 }
+
+                Console.WriteLine( "Done" );
             }
             else
             {

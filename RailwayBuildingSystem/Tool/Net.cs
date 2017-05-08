@@ -74,7 +74,7 @@ namespace RailwayBuildingSystem.Tool
             //开启连接
             con.Open();
             //数据库表为 staffaccount
-            string strcmd = "select * from staffaccount";
+            string strcmd = "select * from buildingmodelinfo";
             MySqlCommand cmd = new MySqlCommand( strcmd , con );
             MySqlDataAdapter ada = new MySqlDataAdapter( cmd );
             //查询结果填充数据集

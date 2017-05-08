@@ -39,6 +39,7 @@ namespace RailwayBuildingSystem
                 dataBaseViewer.DataSource = ds.Tables[ 0 ];
                 dataBaseViewer.ClearSelection();
 
+                var collection = dataBaseViewer.SelectedRows;
                 //可以通过这种方式输出需要的数据
                 var list = ds.Tables[ 0 ].CreateDataReader();
                 while ( list.Read() )

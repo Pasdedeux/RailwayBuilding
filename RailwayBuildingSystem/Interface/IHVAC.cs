@@ -8,12 +8,12 @@ namespace RailwayBuildingSystem.Interface
 {
     interface IHVAC
     {
-        int AirCondition { get; set; }
-        int Wind { get; set; }
-        int Firehydrant { get; set; }
-        int GasFirehydrant { get; set; }
-        int WaterFirehydrant { get; set; }
-        int FireCannon { get; set; }
-        int Extinguisher { get; set; }
+        int? AirConditioning { get; set; }
+        int? Wind { get; set; }
+        int? Firehydrant { get; set; }
+        int? GasFirehydrant { get; set; }
+        int? WaterFirehydrant { get; set; }
+        int? FireCannon { get; set; }
+        int? Extinguisher { get; set; }
     }
 }

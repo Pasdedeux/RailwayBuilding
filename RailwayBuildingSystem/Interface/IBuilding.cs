@@ -8,12 +8,12 @@ namespace RailwayBuildingSystem.Interface
 {
     interface IBuilding
     {
-        string BuildingMajoys { get; set; }
+        string BuildingMajors { get; set; }
         string BuildingType { get; set; }
         string BuildingName { get; set; }
-        float Area { get; set; }
-        float Height { get; set; }
-        float Location { get; set; }
-        int FireLevel { get; set; }
+        double Area { get; set; }
+        double Height { get; set; }
+        double Location { get; set; }
+        int? FireLevel { get; set; }
     }
 }

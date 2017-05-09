@@ -46,11 +46,9 @@ namespace RailwayBuildingSystem
                 {
                     DataProxy dataProxy = new DataProxy();
                     PropertyInfo[] propArray = dataProxy.GetType().GetProperties();
-                    List<string> nameList = new List<string>();
                     for ( int i = 0 ; i < propArray.Length ; i++ )
                     {
-                        nameList.Add( propArray[ i ].Name );
-                        propArray[ i ].SetValue( dataProxy , list[ propArray[ i ].Name ] );
+                        propArray[ i ].SetValue( dataProxy , list[ propArray[ i ].Name ] == DBNull.Value ? null : list[ propArray[ i ].Name ] );
                     }
 
                     _dataProxyList.Add( dataProxy );

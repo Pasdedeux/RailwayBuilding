@@ -16,7 +16,7 @@ namespace RailwayBuildingSystem
     {
         private BuildingAndConstructionWindow _buildWindow;
         private HVACWindow _hvacWindow;
-
+        private bool _isInit = true;
         private List<DataProxy> _dataProxyList = new List<DataProxy>();
 
         public Main( )
@@ -38,23 +38,8 @@ namespace RailwayBuildingSystem
                 DataSet ds = Tool.Net.ConnectMySql();
                 dataBaseViewer.DataSource = ds.Tables[ 0 ];
                 dataBaseViewer.ClearSelection();
+                _isInit = false;
 
-                var collection = dataBaseViewer.SelectedRows;
-                //可以通过这种方式输出需要的数据
-                var list = ds.Tables[ 0 ].CreateDataReader();
-                while ( list.Read() )
-                {
-                    DataProxy dataProxy = new DataProxy();
-                    PropertyInfo[] propArray = dataProxy.GetType().GetProperties();
-                    for ( int i = 0 ; i < propArray.Length ; i++ )
-                    {
-                        propArray[ i ].SetValue( dataProxy , list[ propArray[ i ].Name ] == DBNull.Value ? null : list[ propArray[ i ].Name ] );
-                    }
-
-                    _dataProxyList.Add( dataProxy );
-                }
-
-                Console.WriteLine( "Done" );
             }
             else
             {
@@ -73,10 +58,18 @@ namespace RailwayBuildingSystem
             }
         }
 
-        private void LinkToolStripMenuItem_Click( object sender , EventArgs e )
+        private void dataBaseViewer_CellContentChange( object sender , EventArgs e )
         {
-            Console.WriteLine( "点击链接" );
-        }
+            if ( _isInit ) return;
+            var collection = dataBaseViewer.SelectedRows[0].Cells;
 
+            DataProxy dataProxy = new DataProxy();
+            PropertyInfo[] propArray = dataProxy.GetType().GetProperties();
+            for ( int i = 0 ; i < propArray.Length ; i++ )
+            {
+                propArray[ i ].SetValue( dataProxy , collection[ propArray[ i ].Name ].Value == DBNull.Value ? null : collection[ propArray[ i ].Name ].Value );
+            }
+            _dataProxyList.Add( dataProxy );
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace RailwayBuildingSystem.Tool
     {
         public int? AirConditioning { get; set; }
 
-        public double Area { get; set; }
+        public double? Area { get; set; }
 
         public string Author { get; set; }
 
@@ -32,11 +32,11 @@ namespace RailwayBuildingSystem.Tool
 
         public int? GasFirehydrant { get; set; }
 
-        public double Height { get; set; }
+        public double? Height { get; set; }
 
-        public int ID { get; set; }
+        public uint ID { get; set; }
 
-        public double Location { get; set; }
+        public double? Location { get; set; }
 
         public int Time { get; set; }
 

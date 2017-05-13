@@ -8,7 +8,7 @@ namespace RailwayBuildingSystem.Interface
 {
     interface IUser
     {
-        int ID { get; set; }
+        uint ID { get; set; }
         string Author { get; set; }
         int Time { get; set; }
     }

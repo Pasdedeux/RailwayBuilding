@@ -171,6 +171,7 @@
             this.dataBaseViewer.StandardTab = true;
             this.dataBaseViewer.TabIndex = 1;
             this.dataBaseViewer.TabStop = false;
+            this.dataBaseViewer.SelectionChanged += new System.EventHandler( this.dataBaseViewer_CellContentChange );
             // 
             // panel3
             // 
@@ -829,7 +830,6 @@
             this.连接ToolStripMenuItem.Name = "连接ToolStripMenuItem";
             this.连接ToolStripMenuItem.Size = new System.Drawing.Size(178, 38);
             this.连接ToolStripMenuItem.Text = "连接...";
-            this.连接ToolStripMenuItem.Click += new System.EventHandler(this.LinkToolStripMenuItem_Click);
             // 
             // 退出ToolStripMenuItem
             // 

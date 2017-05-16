@@ -37,7 +37,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.specializeTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -101,7 +101,7 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.specializeTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -171,7 +171,7 @@
             this.dataBaseViewer.StandardTab = true;
             this.dataBaseViewer.TabIndex = 1;
             this.dataBaseViewer.TabStop = false;
-            this.dataBaseViewer.SelectionChanged += new System.EventHandler( this.dataBaseViewer_CellContentChange );
+            this.dataBaseViewer.SelectionChanged += new System.EventHandler(this.dataBaseViewer_CellContentChange);
             // 
             // panel3
             // 
@@ -225,27 +225,27 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.tabControl1);
+            this.panel4.Controls.Add(this.specializeTab);
             this.panel4.Location = new System.Drawing.Point(0, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(2459, 574);
             this.panel4.TabIndex = 0;
             // 
-            // tabControl1
+            // specializeTab
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.specializeTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl1.Location = new System.Drawing.Point(8, 8);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(2427, 560);
-            this.tabControl1.TabIndex = 0;
+            this.specializeTab.Controls.Add(this.tabPage1);
+            this.specializeTab.Controls.Add(this.tabPage2);
+            this.specializeTab.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.specializeTab.Location = new System.Drawing.Point(8, 8);
+            this.specializeTab.Margin = new System.Windows.Forms.Padding(6);
+            this.specializeTab.Name = "specializeTab";
+            this.specializeTab.SelectedIndex = 0;
+            this.specializeTab.Size = new System.Drawing.Size(2427, 560);
+            this.specializeTab.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -901,7 +901,7 @@
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.specializeTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -933,7 +933,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl specializeTab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label2;

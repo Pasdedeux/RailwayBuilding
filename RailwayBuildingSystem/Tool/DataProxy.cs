@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace RailwayBuildingSystem.Tool
 {
     using RailwayBuildingSystem.Interface;
-    class DataProxy : IUser, IBuilding, IHVAC
+    class DataProxy : ICloneable ,IUser, IBuilding, IHVAC
     {
         public int? AirConditioning { get; set; }
 
@@ -43,5 +43,11 @@ namespace RailwayBuildingSystem.Tool
         public int? WaterFirehydrant { get; set; }
 
         public int? Wind { get; set; }
+
+        public object Clone( )
+        {
+            //浅复制
+            return this.MemberwiseClone();
+        }
     }
 }

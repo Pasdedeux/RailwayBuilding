@@ -129,16 +129,61 @@ namespace RailwayBuildingSystem
             {
                 DataProxy dp = _selectDataProxy.Clone() as DataProxy;
                 //是否设置空调
-                CheckBoxStatus( checkBox1 , textBox1 );
-                checkBox1.CheckState = dp.AirConditioning == null ? CheckState.Unchecked : CheckState.Checked;
-                textBox1.Text = dp.AirConditioning.ToString();
+                CheckBoxStatus( checkBox1 , textBox1 , dp.AirConditioning );
+                CheckBoxStatus( checkBox2 , textBox5 , dp.Wind );
+                CheckBoxStatus( checkBox3 , textBox6 , dp.Firehydrant );
+                CheckBoxStatus( checkBox4 , textBox7 , dp.GasFirehydrant );
+                CheckBoxStatus( checkBox5 , textBox8 , dp.WaterFirehydrant );
+                CheckBoxStatus( checkBox6 , textBox9 , dp.FireCannon );
+                CheckBoxStatus( checkBox7 , textBox10 , dp.Extinguisher);
             }
         }
 
-        void CheckBoxStatus(CheckBox checkBox, TextBox textBox)
+        void CheckBoxStatus( CheckBox checkBox , TextBox textBox , int? data )
         {
-
+            checkBox.CheckState = data == null ? CheckState.Unchecked : CheckState.Checked;
+            textBox.Enabled = data == null ? false : true;
+            textBox.Text = data.ToString();
+            
         }
+
+        #region 点击委托
+
+        private void checkBox1_CheckedChanged( object sender , EventArgs e )
+        {
+            this.textBox1.Enabled = checkBox1.CheckState == CheckState.Checked;
+        }
+
+        private void checkBox2_CheckedChanged( object sender , EventArgs e )
+        {
+            this.textBox5.Enabled = checkBox2.CheckState == CheckState.Checked;
+        }
+
+        private void checkBox3_CheckedChanged( object sender , EventArgs e )
+        {
+            this.textBox6.Enabled = checkBox3.CheckState == CheckState.Checked;
+        }
+
+        private void checkBox5_CheckedChanged( object sender , EventArgs e )
+        {
+            this.textBox8.Enabled = checkBox5.CheckState == CheckState.Checked;
+        }
+
+        private void checkBox4_CheckedChanged( object sender , EventArgs e )
+        {
+            this.textBox7.Enabled = checkBox4.CheckState == CheckState.Checked;
+        }
+
+        private void checkBox6_CheckedChanged( object sender , EventArgs e )
+        {
+            this.textBox9.Enabled = checkBox6.CheckState == CheckState.Checked;
+        }
+
+        private void checkBox7_CheckedChanged( object sender , EventArgs e )
+        {
+            this.textBox10.Enabled = checkBox7.CheckState == CheckState.Checked;
+        }
+        #endregion
 
     }
 }

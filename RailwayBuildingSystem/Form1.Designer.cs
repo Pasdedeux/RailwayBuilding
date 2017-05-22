@@ -629,6 +629,7 @@
             this.checkBox7.TabIndex = 62;
             this.checkBox7.Text = "是否设置灭火器";
             this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.CheckedChanged += new System.EventHandler(this.checkBox7_CheckedChanged);
             // 
             // checkBox6
             // 
@@ -641,6 +642,7 @@
             this.checkBox6.TabIndex = 61;
             this.checkBox6.Text = "是否设置消防炮系统";
             this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
             // 
             // checkBox5
             // 
@@ -653,6 +655,7 @@
             this.checkBox5.TabIndex = 60;
             this.checkBox5.Text = "是否设置气体灭火系统";
             this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -665,6 +668,7 @@
             this.checkBox4.TabIndex = 59;
             this.checkBox4.Text = "是否设置自动喷水灭火系统";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // label24
             // 
@@ -770,6 +774,7 @@
             this.checkBox3.TabIndex = 49;
             this.checkBox3.Text = "是否设置消火栓系统";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -782,6 +787,7 @@
             this.checkBox2.TabIndex = 48;
             this.checkBox2.Text = "是否设置机械通风";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -794,6 +800,7 @@
             this.checkBox1.TabIndex = 47;
             this.checkBox1.Text = "是否设置空调";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label12
             // 

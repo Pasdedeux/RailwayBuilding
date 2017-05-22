@@ -18,7 +18,7 @@ namespace RailwayBuildingSystem
         private HVACWindow _hvacWindow;
         private bool _isInit = true;
         //private List<DataProxy> _dataProxyList = new List<DataProxy>();
-        private DataProxy _selectDataProxy;
+        private DataProxy _selectDataProxy, _operateDataProxy;
 
         public Main( )
         {
@@ -79,6 +79,13 @@ namespace RailwayBuildingSystem
             //_dataProxyList.Add( dataProxy )
             _selectDataProxy = dataProxy;
 
+            UpdateData();
+        }
+
+        void UpdateData()
+        {
+            _operateDataProxy = null;
+            _operateDataProxy = _selectDataProxy.Clone() as DataProxy;
             switch ( specializeTab.SelectedIndex )
             {
                 case 0:             //房建专业
@@ -100,22 +107,21 @@ namespace RailwayBuildingSystem
             //已选择一条现有数据
             if ( _selectDataProxy !=null )
             {
-                DataProxy dp = _selectDataProxy.Clone() as DataProxy;
                 //房屋专业
-                comboBox1.Text = dp.BuildingMajors;
+                comboBox1.Text = _operateDataProxy.BuildingMajors;
                 //房屋类型
-                comboBox2.Text = dp.BuildingType;
+                comboBox2.Text = _operateDataProxy.BuildingType;
                 //防火等级
-                comboBox3.Text = dp.FireLevel.ToString();
+                comboBox3.Text = _operateDataProxy.FireLevel.ToString();
                 //房屋名称
-                comboBox_RoomName.Text = dp.BuildingName;
+                comboBox_RoomName.Text = _operateDataProxy.BuildingName;
 
                 //房屋面积
-                textBox2.Text = dp.Area.ToString();
+                textBox2.Text = _operateDataProxy.Area.ToString();
                 //房屋高度
-                textBox3.Text = dp.Height.ToString();
+                textBox3.Text = _operateDataProxy.Height.ToString();
                 //所处里程
-                textBox4.Text = dp.Location.ToString();
+                textBox4.Text = _operateDataProxy.Location.ToString();
             }
         }
 
@@ -127,15 +133,14 @@ namespace RailwayBuildingSystem
             //已选择一条现有数据
             if ( _selectDataProxy != null )
             {
-                DataProxy dp = _selectDataProxy.Clone() as DataProxy;
                 //是否设置空调
-                CheckBoxStatus( checkBox1 , textBox1 , dp.AirConditioning );
-                CheckBoxStatus( checkBox2 , textBox5 , dp.Wind );
-                CheckBoxStatus( checkBox3 , textBox6 , dp.Firehydrant );
-                CheckBoxStatus( checkBox4 , textBox7 , dp.GasFirehydrant );
-                CheckBoxStatus( checkBox5 , textBox8 , dp.WaterFirehydrant );
-                CheckBoxStatus( checkBox6 , textBox9 , dp.FireCannon );
-                CheckBoxStatus( checkBox7 , textBox10 , dp.Extinguisher);
+                CheckBoxStatus( checkBox1 , textBox1 , _operateDataProxy.AirConditioning );
+                CheckBoxStatus( checkBox2 , textBox5 , _operateDataProxy.Wind );
+                CheckBoxStatus( checkBox3 , textBox6 , _operateDataProxy.Firehydrant );
+                CheckBoxStatus( checkBox4 , textBox7 , _operateDataProxy.GasFirehydrant );
+                CheckBoxStatus( checkBox5 , textBox8 , _operateDataProxy.WaterFirehydrant );
+                CheckBoxStatus( checkBox6 , textBox9 , _operateDataProxy.FireCannon );
+                CheckBoxStatus( checkBox7 , textBox10 , _operateDataProxy.Extinguisher);
             }
         }
 
@@ -147,7 +152,7 @@ namespace RailwayBuildingSystem
             
         }
 
-        #region 点击委托
+        #region HVAC点击委托
 
         private void checkBox1_CheckedChanged( object sender , EventArgs e )
         {
@@ -185,5 +190,15 @@ namespace RailwayBuildingSystem
         }
         #endregion
 
+        private void ResetButton_Click( object sender , EventArgs e )
+        {
+            UpdateData();
+        }
+
+        private void SaveButton_Click( object sender , EventArgs e )
+        {
+            //TODO 上传数据
+            //
+        }
     }
 }

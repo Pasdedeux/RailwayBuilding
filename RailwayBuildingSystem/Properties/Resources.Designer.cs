@@ -29,7 +29,7 @@ namespace RailwayBuildingSystem.Properties
 
         private static global::System.Globalization.CultureInfo resourceCulture;
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute( "Microsoft.Performance" , "CA1811:AvoidUncalledPrivateCode" )]
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute( "Microsoft.Performance" , "CA1811:AvoidUncalle_operateDataProxyrivateCode" )]
         internal Resources( )
         {
         }
